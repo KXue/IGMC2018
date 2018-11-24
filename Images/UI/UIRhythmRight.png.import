@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex"
+path="res://.import/UIRhythmRight.png-a21509d63b081f8c56fa4e01f80f94e5.stex"
 
 [deps]
 
-source_file="res://Images/icon.png"
-dest_files=[ "res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex" ]
+source_file="res://Images/UI/UIRhythmRight.png"
+dest_files=[ "res://.import/UIRhythmRight.png-a21509d63b081f8c56fa4e01f80f94e5.stex" ]
 
 [params]
 

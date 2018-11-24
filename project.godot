@@ -12,8 +12,20 @@ config_version=3
 
 config/name="IGMC2018"
 run/main_scene="res://Levels/LevelSandbox.tscn"
-config/icon="res://icon.png"
+config/icon="res://Images/icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=270
+window/size/test_width=1024
+window/size/test_height=576
+window/dpi/allow_hidpi=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
+quality/filters/anisotropic_filter_level=1
 environment/default_environment="res://default_env.tres"

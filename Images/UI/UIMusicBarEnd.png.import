@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex"
+path="res://.import/UIMusicBarEnd.png-c6f39ba6a9b28412f966ebf8b3a9c7d1.stex"
 
 [deps]
 
-source_file="res://Images/icon.png"
-dest_files=[ "res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex" ]
+source_file="res://Images/UI/UIMusicBarEnd.png"
+dest_files=[ "res://.import/UIMusicBarEnd.png-c6f39ba6a9b28412f966ebf8b3a9c7d1.stex" ]
 
 [params]
 

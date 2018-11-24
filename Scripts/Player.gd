@@ -1,35 +1,59 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-var velocity = Vector2()
+enum player_state{
+	IDLE,
+	RUNNING,
+	JUMPING,
+	FALLING,
+	ATTACKING,
+	DAMAGED
+}
+
 const UP = Vector2(0, -1)
-export var run_speed = 60
-export var jump_speed = 250
-export var gravity = 500
-export var fall_gravity_multiplier = 1.5
+const ATTACK = preload("res://Units/Misc/Fork.tscn")
+
+export (int) var run_speed = 60
+export (int) var jump_speed = 250
+export (int) var gravity = 500
+export (float) var fall_gravity_multiplier = 1.5
+
+var velocity = Vector2()
+var state = player_state.IDLE
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
 
+	pass
+func _process(delta):
+	
+	pass
 func _physics_process(delta):	
 	velocity.x = 0;
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -1
+		$AnimationPlayer.play("Running")
+		$AnimatedSprite.flip_h = true
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = 1
+		state = player_state.RUNNING
+		$AnimationPlayer.play("Running")
+		$AnimatedSprite.flip_h = false
+	elif is_on_floor():
+		state = player_state.IDLE
+		$AnimationPlayer.play("Idle")
 	velocity.x *= run_speed
 
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y -= jump_speed
 	else:
 		var actual_gravity = gravity
 		if velocity.y > 0:
 			actual_gravity *= fall_gravity_multiplier
 		velocity.y += actual_gravity * delta
+	if not is_on_floor():
+		if velocity.y < 0:
+			$AnimationPlayer.play("Jump")
+		else:
+			$AnimationPlayer.play("Fall")
 	
 	velocity = move_and_slide(velocity, UP)
 

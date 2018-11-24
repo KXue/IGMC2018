@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex"
+path="res://.import/Jump.png-9262d17ce6c5208be0dace6db647bf30.stex"
 
 [deps]
 
-source_file="res://Images/icon.png"
-dest_files=[ "res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex" ]
+source_file="res://Images/PlayerAnimation/Jump.png"
+dest_files=[ "res://.import/Jump.png-9262d17ce6c5208be0dace6db647bf30.stex" ]
 
 [params]
 
