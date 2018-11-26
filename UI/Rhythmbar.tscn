@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Images/UI/UIMusicBarLeft.png" type="Texture" id=1]
-[ext_resource path="res://Images/UI/Treble.png" type="Texture" id=2]
-[ext_resource path="res://Images/UI/UIMusicTimingIndicator.png" type="Texture" id=3]
-[ext_resource path="res://Images/UI/UIMusicBarMiddle.png" type="Texture" id=4]
-[ext_resource path="res://Images/UI/UIMusicBarEnd.png" type="Texture" id=5]
+[ext_resource path="res://Images/UI/UIRhythmLeft.png" type="Texture" id=1]
+[ext_resource path="res://Images/UI/Percussion.png" type="Texture" id=2]
+[ext_resource path="res://Images/UI/UIRhythmMiddle.png" type="Texture" id=3]
+[ext_resource path="res://Images/UI/UIMusicTimingIndicator.png" type="Texture" id=4]
+[ext_resource path="res://Images/UI/UIRhythmEnd.png" type="Texture" id=5]
 
-[node name="RhythmBar" type="MarginContainer" index="0"]
+[node name="RhythmBar" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -90,9 +90,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 3 )
 stretch_mode = 0
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="BarForeground" type="TextureRect" parent="HBoxContainer/RhythmBarTimingIndicator" index="0"]
 
+show_behind_parent = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -107,6 +109,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="RhythmBarMiddle" type="TextureRect" parent="HBoxContainer" index="2"]
 
@@ -123,7 +126,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 stretch_mode = 0
 
 [node name="RhythmBarRight" type="TextureRect" parent="HBoxContainer" index="3"]

@@ -30,16 +30,16 @@ func _physics_process(delta):
 	velocity.x = 0;
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -1
-		$AnimationPlayer.play("Running")
+		$AnimatedSprite.play("Run")
 		$AnimatedSprite.flip_h = true
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = 1
 		state = player_state.RUNNING
-		$AnimationPlayer.play("Running")
+		$AnimatedSprite.play("Run")
 		$AnimatedSprite.flip_h = false
-	elif is_on_floor():
+	elif is_on_floor() and $AnimatedSprite.animation != "Attack":
 		state = player_state.IDLE
-		$AnimationPlayer.play("Idle")
+		$AnimatedSprite.play("Idle")
 	velocity.x *= run_speed
 
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
@@ -51,10 +51,12 @@ func _physics_process(delta):
 		velocity.y += actual_gravity * delta
 	if not is_on_floor():
 		if velocity.y < 0:
-			$AnimationPlayer.play("Jump")
+			$AnimatedSprite.play("Jump")
 		else:
-			$AnimationPlayer.play("Fall")
+			$AnimatedSprite.play("Fall")
 	
+	if Input.is_action_just_pressed("ui_down"):
+		$AnimatedSprite.play("Attack")
 	velocity = move_and_slide(velocity, UP)
 
 #func _process(delta):
