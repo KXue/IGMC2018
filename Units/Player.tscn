@@ -1,52 +1,19 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Images/PlayerAnimation/Idle2.png" type="Texture" id=2]
-[ext_resource path="res://Images/PlayerAnimation/Idle1.png" type="Texture" id=3]
-[ext_resource path="res://Images/PlayerAnimation/Attack1.png" type="Texture" id=4]
-[ext_resource path="res://Images/PlayerAnimation/Attack2.png" type="Texture" id=5]
-[ext_resource path="res://Images/PlayerAnimation/Attack3.png" type="Texture" id=6]
-[ext_resource path="res://Images/PlayerAnimation/Jump.png" type="Texture" id=7]
-[ext_resource path="res://Images/PlayerAnimation/Fall.png" type="Texture" id=8]
-[ext_resource path="res://Animations/Fall.tres" type="Animation" id=9]
-[ext_resource path="res://Animations/Idle.tres" type="Animation" id=10]
-[ext_resource path="res://Animations/Jump.tres" type="Animation" id=11]
-[ext_resource path="res://Animations/Running.tres" type="Animation" id=12]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Run",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 0.5
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "Attack",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": false,
-"name": "Jump",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": false,
-"name": "Fall",
-"speed": 0.0
-} ]
+[ext_resource path="res://Images/PlayerAnimation/Fall.png" type="Texture" id=2]
+[ext_resource path="res://Animations/Attack.tres" type="Animation" id=3]
+[ext_resource path="res://Animations/Fall.tres" type="Animation" id=4]
+[ext_resource path="res://Animations/Idle.tres" type="Animation" id=5]
+[ext_resource path="res://Animations/Jump.tres" type="Animation" id=6]
+[ext_resource path="res://Animations/Running.tres" type="Animation" id=7]
 
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 10.4311
 height = 42.346
+_sections_unfolded = [ "Resource" ]
 
 [node name="Player" type="KinematicBody2D" index="0"]
 
@@ -60,18 +27,16 @@ __meta__ = {
 "_edit_group_": true
 }
 run_speed = 200
-jump_speed = 400
+jump_speed = 300
+jump_cutoff = 150
 gravity = 600
 fall_gravity_multiplier = 1.5
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 0, 1 )
-frames = SubResource( 1 )
-animation = "Idle"
-frame = 1
-playing = true
-_sections_unfolded = [ "Material", "Pause", "Transform" ]
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 
@@ -102,7 +67,7 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 [node name="Collider" type="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
@@ -111,10 +76,12 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/Fall = ExtResource( 9 )
-anims/Idle = ExtResource( 10 )
-anims/Jump = ExtResource( 11 )
-anims/Running = ExtResource( 12 )
+anims/Attack = ExtResource( 3 )
+anims/Fall = ExtResource( 4 )
+anims/Idle = ExtResource( 5 )
+anims/Jump = ExtResource( 6 )
+anims/Running = ExtResource( 7 )
 blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 
