@@ -1,14 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Images/PlayerAnimation/Fall.png" type="Texture" id=2]
+[ext_resource path="res://Images/PlayerAnimation/Idle1.png" type="Texture" id=2]
 [ext_resource path="res://Animations/Attack.tres" type="Animation" id=3]
 [ext_resource path="res://Animations/Fall.tres" type="Animation" id=4]
 [ext_resource path="res://Animations/Idle.tres" type="Animation" id=5]
 [ext_resource path="res://Animations/Jump.tres" type="Animation" id=6]
 [ext_resource path="res://Animations/Running.tres" type="Animation" id=7]
+[ext_resource path="res://Scripts/FSM/States/Idle.gd" type="Script" id=8]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.4311
@@ -66,7 +67,7 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Smoothing" ]
 
 [node name="Collider" type="CollisionShape2D" parent="." index="2"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
@@ -83,5 +84,17 @@ anims/Jump = ExtResource( 6 )
 anims/Running = ExtResource( 7 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[node name="Idle" type="Node" parent="." index="4"]
+
+script = ExtResource( 8 )
+
+[node name="Run" type="Node" parent="." index="5"]
+
+[node name="Jump" type="Node" parent="." index="6"]
+
+[node name="Attack" type="Node" parent="." index="7"]
+
+[node name="Stagger" type="Node" parent="." index="8"]
 
 
