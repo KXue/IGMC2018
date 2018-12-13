@@ -10,7 +10,7 @@ func enter():
 func exit():
 	return
 
-func handle_input(event):
+func interrupt(event):
 	return
 
 func update(delta):

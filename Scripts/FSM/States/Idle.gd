@@ -1,12 +1,13 @@
 extends "res://Scripts/FSM/States/OnGround.gd"
 
 func enter():
+	.enter()
 	owner.get_node("AnimationPlayer").play("Idle")
 
-func handle_input(event):
-	return .handle_input(event)
+func interrupt(event):
+	return .interrupt(event)
 
 func update(delta):
-	var input_direction = get_input_direction()
-	if input_direction:
-		emit_signal("finished", "move")
+	.update(delta)
+	if velocity.x != 0 or get_input_direction().x != 0:
+		emit_signal("finished", "run")
